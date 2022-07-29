@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "dd5c74f0-f1cc-4596-bca2-7d3cfd52b6fd",
+		"name": "RestaurantApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20577852"
+	},
+	"item": [
+		{
+			"name": "user Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"deee\",\r\n    \"phone\":\"5786748657\",\r\n    \"image\":\"photo\",\r\n    \"email\": \"navneet663354@gmail.in\",\r\n    \"password\": \"Shaurya1@\",\r\n    \"termCondition\": true,\r\n    \"userType\": \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"register"
+					]
+				},
+				"description": "StartFragment\n\nThe user registration API creates a user account in your application. A registration request must provide a user object as a collection of key/value properties. The collection must contain a property marked as identity as well as the `\"password\"` property. The default identity property is \"`email`\", however, it can be [changed in Backendless Console](https://backendless.com/docs/rest/users_user_properties.html#userprops_in_console). Additionally, the `\"email\"` property is required if your Backendless application is configured to confirm email addresses for the registered users\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "user log in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"navneet663354@gmail.in\",\r\n    \"password\": \"Shaurya1@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"login"
+					]
+				},
+				"description": "StartFragment\n\nRegistered users can login using the API described below. The login operation requires two properties: one marked as email and the second is [password](https://backendless.com/docs/rest/users_user_properties.html#password-property). Backendless automatically assigns the `\"AuthenticatedUser\"` role to all successfully logged in users. The role can be used to differentiate access to various resources (data in the database, files, messaging channels) between authenticated users and guests.\n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "uploadImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/C:/Users/yogesh/Pictures/download.jpg"
+						},
+						{
+							"key": "resume",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://restaurant-app-yogesh-parmar.herokuapp.com/common/upload",
+					"protocol": "https",
+					"host": [
+						"restaurant-app-yogesh-parmar",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"common",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MmUzOGQ3MzMwMTUzNDllMzdkYTNjNjEiLCJpYXQiOjE2NTkwODAwNTcsImV4cCI6MTY1OTUxMjA1N30.gyiED8orJ80mBmkI1WheF2hcNOxvQnAPkwedeSQqwpc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/admin/getUserProfile",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"getUserProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProfile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MmUzOGQ3MzMwMTUzNDllMzdkYTNjNjEiLCJpYXQiOjE2NTkwODAwNTcsImV4cCI6MTY1OTUxMjA1N30.gyiED8orJ80mBmkI1WheF2hcNOxvQnAPkwedeSQqwpc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"name\": \"rohit\",\r\n    \"email\": \"rohit@gmail.in\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/admin/updateUserProfile",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"updateUserProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "luserList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/user/userList",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"userList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
